@@ -1,0 +1,64 @@
+{
+    "name": "imdhemy/laravel-purchases",
+    "description": "Laravel receipt validator for Google Play",
+    "keywords": [
+        "laravel-in-app-purchases",
+        "google_play",
+        "in_app_purchases",
+        "laravel"
+    ],
+    "homepage": "https://github.com/imdhemy/laravel-in-app-purchases",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "imdhemy",
+            "email": "imdhemy@gmail.com",
+            "homepage": "http://dhemy.studio",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-json": "*",
+        "imdhemy/appstore-iap": "^0.3",
+        "imdhemy/google-play-billing": "^0.6",
+        "nesbot/carbon": "^2.41"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.17",
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^8.5",
+        "psalm/plugin-laravel": "^1.2",
+        "vimeo/psalm": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Imdhemy\\Purchases\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Imdhemy\\Purchases\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Imdhemy\\Purchases\\PurchaseServiceProvider"
+            ],
+            "aliases": {
+                "Product": "\\Imdhemy\\Purchases\\Facades\\Product",
+                "Subscription": "\\Imdhemy\\Purchases\\Facades\\Subscription"
+            }
+        }
+    }
+}
